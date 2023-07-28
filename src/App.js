@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import './App.css';
 
+const endereco_servidor = "https://mensagem-nodejs-vercel.vercel.app";
+
 class FrmMensagem extends Component {
 
     // Construtor
@@ -27,7 +29,7 @@ class FrmMensagem extends Component {
       event.preventDefault();
       
       //Recupera e atualiza a mensagem anterior antes de enviar a nova mensagem
-       fetch(`http://localhost:8000/mensagem`)           
+       fetch(`${endereco_servidor}/mensagem`)           
         .then((response) => response.json()) //Converte a resposta para JSON
         .then((data) => { //Recupera a resposta
             this.setState({mensagemAnterior : data.mensagem}); // Atribui a resposta ao estado
@@ -36,7 +38,7 @@ class FrmMensagem extends Component {
       // Recupera o valor da mensagem
       const { mensagem } = this.state;      
       // Envia a mensagem nova para o servidor
-      fetch(`http://localhost:8000/mensagempath/${mensagem}`)      
+      fetch(`${endereco_servidor}/mensagempath/${mensagem}`)      
         .then((response) => response.json()) //Converte a resposta para JSON
         .then((data) => { //Recupera a resposta
             this.setState({resposta : data.mensagem}); // Atribui a resposta ao estado
