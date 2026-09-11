@@ -48,14 +48,14 @@ class FrmMensagem extends Component {
     // Limpa os campos do formulário.     
     limpar = () => { 
       this.setState({mensagemAnterior: '',
-                     mensagem: '',
-                     resposta: ''});
+                    mensagem: '',
+                    resposta: ''});
     };
   
     // Renderiza o formulário
     render() {
         return (      
-          <form name="FrmMensagem" method="get" onSubmit={this.handleSubmit}>
+          <form name="FrmMensagem" method="get" onSubmit={this.handleSubmit} style={{ textAlign: 'left' }}>
             <label><h1>Formulário Mensagem</h1> </label>
             <label>Mensagem anterior: {this.state.mensagemAnterior} </label><br/><br/>
             <label>Nova mensagem: 
